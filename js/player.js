@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         addAlbum = function(album) {
             this._albums.push(album);
         }
-        albumPlayedMost = function() {
+        favoriteAlbum = function() {
             let max = -1;
             let playedMost;
 
@@ -56,12 +56,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     document.getElementById('play').addEventListener('click', function(e) {
-        let index = sel.value;
-        albums[index].play()
+        if(sel.value != "") {
+            let index = sel.value;
+            albums[index].play()
+        }
     })
 
     document.getElementById('fav').addEventListener('click', function(e) {
-        document.getElementById("favoriteAlbum").innerHTML = player.albumPlayedMost();
+        document.getElementById("favoriteAlbum").innerHTML = player.favoriteAlbum();
     })
 })
 
